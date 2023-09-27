@@ -48,14 +48,23 @@ public class Snap extends CardGame {
     @Override
     public Object checkPlayerWin(int playerIndex) {
         Player currentPlayer = players.get(playerIndex);
+
         for (int i = 0; i < players.size(); i++) {
             if (i != playerIndex) {
                 Player otherPlayer = players.get(i);
                 List<Card> otherPlayerHand = otherPlayer.getPlayerHand();
-                if (!otherPlayerHand.isEmpty()) {
+                if (!otherPlayerHand.isEmpty() && otherPlayerHand.size() > 0) {
                     Card lastCardInHand = otherPlayerHand.get(otherPlayerHand.size() - 1);
                     if (lastCardInHand.getValue() == dealedCard.getValue()) {
-                        System.out.println("SNAP!! " + otherPlayer.getName() + " WINS with " + lastCardInHand + " and " + dealedCard);
+                        System.out.println("Quickly type SNAP!! " + currentPlayer.getName() + " POSSIBLY WINS with " + lastCardInHand + " and " + dealedCard);
+                        // Change or remove message
+                        // But if they match instead accept an input
+                        // Get timestamp of match (or changed message)
+                        // Input
+                        // Timestamp input
+                        // Compare input is equal to snap & and timestamps are within required time
+                        // If both correct, currentPlayer Wins. If not correct, otherPlayer wins
+
                         System.exit(0);
                         return true;
                     }
